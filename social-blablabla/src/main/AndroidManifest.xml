@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ru.social" >
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="ANDROID.PERMISSION.INTERNET"/>
+    <uses-sdk android:maxSdkVersion="21"
+              android:targetSdkVersion="21"
+              android:minSdkVersion="11"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".View.Activity.MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".View.Activity.Auth.RegistrationActivity"
+            android:label="@string/title_activity_registration" >
+        </activity>
+        <activity
+            android:name=".View.Activity.DetailEventActivity"
+            android:label="@string/title_activity_detail_event" >
+        </activity>
+        <activity
+                android:name=".View.Activity.DetailArticleActivity"
+                android:label="@string/title_activity_detail_event" >
+        </activity>
+        <activity
+                android:name=".View.Activity.Auth.LoginActivity"
+                android:label="@string/title_activity_login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

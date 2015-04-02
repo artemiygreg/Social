@@ -1,0 +1,71 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/primary</item>
+        <item name="android:textColor">@color/textMenu</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:tabWidgetStyle">@style/Tab</item>
+
+    </style>
+
+    <style name="ToolbarCustomIconColor" parent="AppTheme">
+        <item name="android:textColorSecondary">#ffffff</item>
+    </style>
+    <style name="Tab" parent="android:Widget.TabWidget">
+        <item name="android:tabStripEnabled">true</item>
+        <item name="android:tabStripRight">@color/textMenu</item>
+    </style>
+    <style name="EditText">
+        <item name="android:textColor">@color/textMenu</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:textColorHint">@color/lightGrey</item>
+        <item name="android:background">@drawable/bg_edittext2</item>
+    </style>
+    <style name="EditText.Email" parent="EditText">
+        <item name="android:hint">@string/email</item>
+        <item name="android:inputType">textEmailAddress</item>
+    </style>
+    <style name="EditText.Password" parent="EditText">
+        <item name="android:hint">@string/password</item>
+        <item name="android:inputType">textPassword</item>
+    </style>
+    <style name="EditText.Phone" parent="EditText">
+        <item name="android:hint">@string/phone</item>
+        <item name="android:inputType">phone</item>
+    </style>
+    <style name="EditText.Fio" parent="EditText">
+        <item name="android:hint">@string/fio</item>
+        <item name="android:inputType">text</item>
+    </style>
+    <style name="Icon">
+        <item name="android:textColor">@color/textMenu</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:background">@drawable/bg_ic_image</item>
+    </style>
+    <style name="Icon.Fio" parent="Icon">
+        <item name="android:src">@drawable/ic_profile_small</item>
+    </style>
+    <style name="Icon.Password" parent="Icon">
+        <item name="android:src">@drawable/ic_password</item>
+    </style>
+    <style name="Icon.Email" parent="Icon">
+        <item name="android:src">@drawable/ic_mail</item>
+    </style>
+    <style name="Icon.Phone" parent="Icon">
+        <item name="android:src">@drawable/ic_phone</item>
+    </style>
+    <style name="Item">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+</resources>
