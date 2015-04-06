@@ -2,6 +2,9 @@ package ru.social.Service.Image;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.util.Base64;
 import android.view.View;
 import android.widget.ImageView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -11,7 +14,11 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import ru.social.Interfaces.Callback;
 import ru.social.View.BitmapAdapter;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 
 /**
  * Created by Admin on 12.03.15.
@@ -95,5 +102,32 @@ public class ImageService {
                 .imageScaleType(ImageScaleType.EXACTLY)
                 .build();
         return options;
+    }
+    public static Bitmap makeBitmapFromUri(Context context, Uri uri){
+        if(uri == null){
+            return null;
+        }
+        else {
+//            return BitmapFactory.decodeFile(uri.toString());
+            Bitmap bitmap = null;
+            try {
+                bitmap = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(uri));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            return bitmap;
+        }
+    }
+    public static void encodeBitmapToBase64(final Bitmap bitmap, final Callback callback){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ByteArrayOutputStream os = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, os);
+                final byte[] byteArray = os.toByteArray();
+                String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
+                callback.call(encoded);
+            }
+        }).start();
     }
 }
