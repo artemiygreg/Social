@@ -180,24 +180,4 @@ public class MyProfileFragment extends Fragment {
         intent.setType("image/*");
         startActivityForResult(intent, REQUEST_AVATAR);
     }
-    public class Helper extends SQLiteOpenHelper{
-
-        public Helper(Context context) {
-            super(context, "db", null, 1);
-        }
-
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-        }
-    }
-    public void insert(){
-        Helper helper = new Helper(getActivity());
-        SQLiteDatabase write = helper.getWritableDatabase();
-    }
 }
